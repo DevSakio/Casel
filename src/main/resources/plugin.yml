@@ -1,0 +1,6 @@
+name: Casel
+version: ${project.version}
+main: me.sakio.casel.Casel
+api-version: 1.16
+authors: [Sakio_]
+description: Basic Tag/Ban/Mute system
