@@ -12,9 +12,9 @@ public enum ChatColor {
     DEFAULT("DEFAULT", "color.test", null),
     RED("RED", "color.test1", Color.RED);
 
-    private final String name_color;
-    private final String permissions;
-    private final Color color;
+    private final String name_color; //The name of color
+    private final String permissions; //The color permissions to use
+    private final Color color; //The color to write in the chat
 
 
 

@@ -8,6 +8,7 @@ import me.sakio.casel.utils.ItemMaker;
 import me.sakio.casel.utils.menu.type.ChestMenu;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
@@ -64,7 +65,10 @@ public class TagMenu extends ChestMenu<Casel> {
             if (event.getRawSlot() == 4) {
                 Casel.getInstance().getPlayerData().setTags(player, Tags.DEFAULT);
                 player.closeInventory();
-                player.sendMessage(Color.translate("&aYou have been sucessfully reset your prefix!"));
+                player.sendMessage(Color.translate(Casel.getInstance().getConfig().getString("PREFIX.MESSAGE.RESET")));
+                player.playSound(player.getLocation(),
+                        Sound.valueOf(Casel.getInstance().getConfig().getString("PREFIX.SOUNDS.RESET")),
+                        2.0f, (float)1.0);
             }
 
             for (Tags value : Tags.values()) {
@@ -74,14 +78,21 @@ public class TagMenu extends ChestMenu<Casel> {
             if (tag == null) return;
 
             if (!player.hasPermission(tag.getPermission())) {
-                player.sendMessage(Color.translate("&cYou don't have permissions to select this prefix!"));
+                player.sendMessage(Color.translate(Casel.getInstance().getConfig().getString("PREFIX.MESSAGE.DENIED")));
+                player.playSound(player.getLocation(),
+                        Sound.valueOf(Casel.getInstance().getConfig().getString("PREFIX.SOUNDS.DENIED")),
+                        2.0f, (float)1.0);
                 return;
             }
 
             switch (tag) {
                 case CASE_1:
                     playerData.setTags(player, Tags.CASE_1);
-                    player.sendMessage(Color.translate("&cNew tag <tag>").replace("<tag>", playerData.getTags(player)));
+                    player.sendMessage(Color.translate(Casel.getInstance().getConfig().getString("PREFIX.MESSAGE.DENIED"))
+                            .replace("<tag>", playerData.getTags(player)));
+                    player.playSound(player.getLocation(),
+                            Sound.valueOf(Casel.getInstance().getConfig().getString("PREFIX.SOUNDS.APPLY")),
+                            2.0f, (float)1.0);
                     player.closeInventory();
                     break;
                     //Copy this code and replace Tags.CASE_1 for other name tag

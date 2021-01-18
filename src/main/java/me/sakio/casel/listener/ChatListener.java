@@ -30,9 +30,4 @@ public class ChatListener implements Listener {
                 .replace("%rank_suffix%", String.valueOf(Casel.getChat().getPlayerSuffix(player))));
         event.setFormat(format);
     }
-    public String getRankName(Player player) {
-        if (!this.found|| this.chat == null)
-            return "Default";
-        return this.chat.getPrimaryGroup(player);
-    }
 }

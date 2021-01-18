@@ -1,8 +1,10 @@
 PREFIX:
   MESSAGE:
-    APPLY: ""
-    DENIED: ""
+    APPLY: "&3Tag <tag> has been apply!"
+    DENIED: "&cYou don't have permissions to select this prefix!"
+    RESET: "&aYou have been sucessfully reset your prefix!"
   SOUNDS:
-    APPLY:
-    DENIED:
-  CHAT:
+    APPLY: "GHAST_FIREBALL"
+    DENIED: "GHAST_FIREBALL"
+    RESET: "GHAST_FIREBALL"
+  CHAT: "%tag% %rank_prefix% %ign% %rank_suffix% : %color% %message%"

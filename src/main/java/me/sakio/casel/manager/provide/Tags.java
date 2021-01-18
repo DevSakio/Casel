@@ -11,8 +11,8 @@ public enum Tags {
     CASE_1("Test_1", "&c[Test]", "test.casel");
 
 
-    private final String name;
-    private final String prefix;
-    private final String permission;
+    private final String name; //The prefix name
+    private final String prefix; //The prefix form
+    private final String permission; //The prefix permissions to use
 
 }
