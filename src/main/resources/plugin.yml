@@ -1,6 +1,6 @@
 name: Casel
 version: ${project.version}
 main: me.sakio.casel.Casel
-api-version: 1.16
+api-version: 1.8
 authors: [Sakio_]
-description: Basic Tag/Ban/Mute system
+description: Basic Tag/Color System

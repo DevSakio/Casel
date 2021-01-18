@@ -1,7 +1,9 @@
 package me.sakio.casel.manager;
 
+import me.sakio.casel.manager.provide.ChatColor;
 import me.sakio.casel.manager.provide.Tags;
 import me.sakio.casel.utils.DataFile;
+import org.bukkit.Color;
 import org.bukkit.entity.Player;
 
 /**
@@ -14,16 +16,17 @@ public class PlayerData {
     public void createData(Player player){
         if (!DataFile.getConfig().getConfigurationSection("PLAYER-DATA").getKeys(false).contains(player.getUniqueId().toString())) {
             DataFile.getConfig().set("PLAYER-DATA." + player.getUniqueId() + ".NAME", player.getName());
+            DataFile.getConfig().set("PLAYER-DATA." + player.getUniqueId() + ".COLOR", ChatColor.RED.getName_color());
             DataFile.getConfig().set("PLAYER-DATA." + player.getUniqueId() + ".TAG", Tags.DEFAULT.getName());
             DataFile.getConfig().saveAll();
         }
     }
-    public String getFirstJoin(Player player) {
-        return DataFile.getConfig().getString("PLAYER-DATA." + player.getUniqueId() + ".FIRST-JOIN");
+    public String getColor(Player player) {
+        return DataFile.getConfig().getString("PLAYER-DATA." + player.getUniqueId() + ".COLOR");
     }
 
-    public void setFirstJoin(Player player, boolean status) {
-        DataFile.getConfig().set("PLAYER-DATA." + player.getUniqueId() + ".FIRST-JOIN", status);
+    public void setColor(Player player, Color color) {
+        DataFile.getConfig().set("PLAYER-DATA." + player.getUniqueId() + ".COLOR", color);
         DataFile.getConfig().saveAll();
     }
     public String getTags(Player player) {

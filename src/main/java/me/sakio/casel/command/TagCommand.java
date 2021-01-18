@@ -15,6 +15,5 @@ public class TagCommand {
     public void OnCommand(CommandArgs cmd){
         Player player = cmd.getPlayer();
         String[] args = cmd.getArgs();
-
     }
 }

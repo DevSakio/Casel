@@ -1,0 +1,8 @@
+PREFIX:
+  MESSAGE:
+    APPLY: ""
+    DENIED: ""
+  SOUNDS:
+    APPLY:
+    DENIED:
+  CHAT:

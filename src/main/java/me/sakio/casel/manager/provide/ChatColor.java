@@ -7,7 +7,10 @@ import org.bukkit.Color;
 @AllArgsConstructor
 @Getter
 public enum ChatColor {
-    RED("RED", "color.test", Color.RED);
+    //You can change null for other color if you want a other default color for example:
+    // DEFAULT("DEFAULT", "color.test", Color.GREEN),
+    DEFAULT("DEFAULT", "color.test", null),
+    RED("RED", "color.test1", Color.RED);
 
     private final String name_color;
     private final String permissions;
