@@ -1,6 +1,7 @@
 package me.sakio.casel.listener;
 
-import me.sakio.casel.utils.Color;
+import me.sakio.casel.Casel;
+import me.sakio.casel.manager.PlayerData;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -16,5 +17,7 @@ public class PlayerListener implements Listener {
     @EventHandler
     public void firstPlayerJoin(PlayerJoinEvent event){
         Player player = event.getPlayer();
+        PlayerData playerData = Casel.getInstance().getPlayerData();
+
     }
 }
