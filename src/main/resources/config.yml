@@ -7,4 +7,16 @@ PREFIX:
     APPLY: "GHAST_FIREBALL"
     DENIED: "GHAST_FIREBALL"
     RESET: "GHAST_FIREBALL"
-  CHAT: "%tag% %rank_prefix% %ign% %rank_suffix% : %color% %message%"
+
+COLOR:
+  MESSAGE:
+    APPLY: "&3Color <color> has been apply!"
+    DENIED: "&cYou don't have permissions to select this color!"
+    RESET: "&aYou have been sucessfully reset your color!"
+  SOUNDS:
+    APPLY: "GHAST_FIREBALL"
+    DENIED: "GHAST_FIREBALL"
+    RESET: "GHAST_FIREBALL"
+
+CHAT: "%tag% %rank_prefix% %ign% %rank_suffix% : %color% %message%"
+

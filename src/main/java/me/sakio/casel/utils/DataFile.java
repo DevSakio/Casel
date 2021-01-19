@@ -1,6 +1,6 @@
 package me.sakio.casel.utils;
 
-import me.sakio.cosmetic.Cosmetic;
+import me.sakio.casel.Casel;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.Plugin;
 
@@ -21,12 +21,12 @@ public class DataFile extends YamlConfiguration {
     }
     
     private Plugin main() {
-        return Cosmetic.getInstance();
+        return Casel.getInstance();
     }
     
     public DataFile() {
         this.plugin = this.main();
-        this.configFile = new File(this.plugin.getDataFolder(), "player-data.yml");
+        this.configFile = new File(this.plugin.getDataFolder(), "data.yml");
         this.saveDefault();
         this.reload();
     }
@@ -50,7 +50,7 @@ public class DataFile extends YamlConfiguration {
     }
     
     public void saveDefault() {
-        this.plugin.saveResource("player-data.yml", false);
+        this.plugin.saveResource("data.yml", false);
     }
 
     public void saveAll() {

@@ -88,12 +88,12 @@ public class TagMenu extends ChestMenu<Casel> {
             switch (tag) {
                 case CASE_1:
                     playerData.setTags(player, Tags.CASE_1);
+                    player.closeInventory();
                     player.sendMessage(Color.translate(Casel.getInstance().getConfig().getString("PREFIX.MESSAGE.DENIED"))
                             .replace("<tag>", playerData.getTags(player)));
                     player.playSound(player.getLocation(),
                             Sound.valueOf(Casel.getInstance().getConfig().getString("PREFIX.SOUNDS.APPLY")),
                             2.0f, (float)1.0);
-                    player.closeInventory();
                     break;
                     //Copy this code and replace Tags.CASE_1 for other name tag
                     //And make case %NAME_TAG% to get the tag when you click

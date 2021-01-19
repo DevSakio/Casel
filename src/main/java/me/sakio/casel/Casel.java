@@ -1,11 +1,17 @@
 package me.sakio.casel;
 
 import lombok.Getter;
+import me.sakio.casel.command.ReloadCommand;
+import me.sakio.casel.listener.ChatListener;
+import me.sakio.casel.listener.PlayerListener;
 import me.sakio.casel.manager.PlayerData;
 import me.sakio.casel.manager.provide.ChatColor;
 import me.sakio.casel.manager.provide.Tags;
+import me.sakio.casel.utils.commands.CommandFramework;
+import me.sakio.casel.utils.menu.MenuListener;
 import net.milkbowl.vault.chat.Chat;
 import org.bukkit.Bukkit;
+import org.bukkit.event.Listener;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -30,10 +36,37 @@ public class Casel extends JavaPlugin {
         logger.info(Arrays.toString(Tags.values()));
         logger.info("COLOR:");
         logger.info(Arrays.toString(ChatColor.values()));
+        this.registerCommands();
+        this.registerListeners();
+        logger.info("Commands And Event Ready!");
     }
 
     @Override
     public void onDisable() { }
+
+    //Event and Command
+    public void registerCommands() {
+        this.registerCommands(
+                new ReloadCommand()
+        );
+        this.registerListeners(
+                new PlayerListener(),
+                new ChatListener(),
+                new MenuListener()
+
+        );
+    }
+
+    private void registerCommands(Object... command) {
+        CommandFramework commandFramework = new CommandFramework(this);
+        Arrays.stream(command).forEach(commandFramework::registerCommands);
+
+    }
+
+    private void registerListeners(Listener... listeners) {
+        Arrays.stream(listeners).forEach(l -> Bukkit.getServer().getPluginManager().registerEvents(l, this));
+    }
+    //Event and Command
 
     private boolean setupChat() {
         RegisteredServiceProvider<Chat> rsp = getServer().getServicesManager().getRegistration(Chat.class);

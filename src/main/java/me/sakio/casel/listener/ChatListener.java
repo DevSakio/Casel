@@ -21,7 +21,7 @@ public class ChatListener implements Listener {
     // implements other chat format to see the tag and color when player write
     public void chatFormat(AsyncPlayerChatEvent event){
         Player player = event.getPlayer();
-        String format = Color.translate(Casel.getInstance().getConfig().getString("PREFIX.CHAT")
+        String format = Color.translate(Casel.getInstance().getConfig().getString("CHAT")
                 .replace("%ign%", player.getName())
                 .replace("%message%",  event.getMessage())
                 .replace("%color%", String.valueOf(Casel.getInstance().getPlayerData().getColor(player)))
