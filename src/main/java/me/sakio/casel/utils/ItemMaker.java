@@ -75,7 +75,7 @@ public class ItemMaker implements Cloneable
 
     public ItemMaker addLore(String... lore) {
         for (String s : lore) {
-            this.lore.add(Color.translate(s));
+            this.lore.add(me.sakio.casel.utils.Color.translate(s));
         }
         return this;
     }
@@ -99,12 +99,12 @@ public class ItemMaker implements Cloneable
     }
 
     public ItemMaker setTitle(String title) {
-        this.title = Color.translate(title);
+        this.title = me.sakio.casel.utils.Color.translate(title);
         return this;
     }
 
     public ItemMaker setLore(String... lore) {
-        this.lore = Color.translate(Arrays.asList(lore));
+        this.lore = me.sakio.casel.utils.Color.translate(Arrays.asList(lore));
         return this;
     }
     
@@ -119,7 +119,7 @@ public class ItemMaker implements Cloneable
     }
     
     public ItemMaker setLore(List<String> list) {
-        this.lore = Color.translate(list);
+        this.lore = me.sakio.casel.utils.Color.translate(list);
         return this;
     }
     

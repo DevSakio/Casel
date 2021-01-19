@@ -24,21 +24,15 @@ public class Casel extends JavaPlugin {
     private static Casel instance;
     private PlayerData playerData;
     private static Chat chat = null;
-    Logger logger = Logger.getLogger("Casel");
 
     @Override
     public void onEnable() {
         instance = this;
         this.playerData = new PlayerData();
         setupChat();
-        logger.info("Casel Start:");
-        logger.info("TAGS:");
-        logger.info(Arrays.toString(Tags.values()));
-        logger.info("COLOR:");
-        logger.info(Arrays.toString(ChatColor.values()));
+        Bukkit.getServer().getConsoleSender().sendMessage("Ready");
         this.registerCommands();
         this.registerListeners();
-        logger.info("Commands And Event Ready!");
     }
 
     @Override
